@@ -20,3 +20,4 @@ set caminho=%CD%
 :: --goto "%caminho%" instrui o VS Code a abrir a nova janela diretamente no diretório
 :: onde o arquivo .bat está.
 start .\Utils\VSCode\Code.exe --new-window --goto "%caminho%"
+::
