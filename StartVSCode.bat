@@ -1,22 +1,11 @@
-:: #########################################################
-:: # Este script faz o seguinte:
-:: # 1. Desliga a exibição de comandos para deixar a saída limpa.
-:: # 2. Define uma variável com o caminho atual do diretório.
-:: # 3. Abre o Visual Studio Code em uma nova janela, diretamente no diretório atual.
-:: #########################################################
-
-:: Desliga a exibição de comandos: Esta linha impede que os comandos do arquivo
-:: sejam exibidos na tela enquanto são executados. Isso deixa a saída mais limpa e fácil de ler.
 @echo off
+:: Desativa a exibição dos comandos na tela para deixar o script mais limpo
 
-:: Define o caminho atual: Aqui, estamos criando uma variável chamada caminho
-:: que armazena o caminho completo da pasta onde o arquivo VSCode.bat está sendo executado.
-:: %CD% é um comando que retorna o diretório atual.
-set caminho=%CD%
+set pasta_atual=%CD%
+:: Define uma variável chamada "pasta_atual" que armazena o diretório atual (onde o script está sendo executado)
 
-:: Abre o VS Code: Esta linha abre o Visual Studio Code (um editor de código) usando o executável Code.exe,
-:: que está localizado na pasta Utils\VSCode relativa ao local onde o arquivo .bat está.
-:: "--new-window" faz com que o VS Code abra uma nova janela.
-:: --goto "%caminho%" instrui o VS Code a abrir a nova janela diretamente no diretório
-:: onde o arquivo .bat está.
-start .\Utils\vscode\Code.exe --new-window --goto "%caminho%"
+start .\Utils\vscode\Code.exe --new-window --goto %pasta_atual%
+:: Inicia o Visual Studio Code em uma nova janela
+:: O caminho para o executável do VSCode é ".\Utils\vscode\Code.exe", relativo ao diretório atual
+:: O parâmetro "--new-window" abre uma nova janela do VSCode
+:: O parâmetro "--goto %pasta_atual%" abre o VSCode no diretório onde o script foi executado, usando a variável "pasta_atual"

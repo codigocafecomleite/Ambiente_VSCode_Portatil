@@ -1,30 +1,19 @@
-:: # NOME: Init
-:: #########################################################
-:: # Este script faz o seguinte:
-:: # 1. Desliga a exibição de comandos para deixar a saída limpa.
-:: # 2. Define o prompt do comando para mostrar o caminho completo e o símbolo '>'.
-:: # 3. Define uma variável com o caminho atual do diretório.
-:: # 4. Adiciona vários diretórios de utilitários ao PATH do sistema.
-:: # 5. Navega para o diretório 'Projetos'.
-:: # 6. Limpa a tela.
-:: #########################################################
-
-:: Desliga a exibição de comandos
 @echo off
+:: Desativa a exibição dos comandos na tela para deixar o script mais limpo
 
-cd /d %~d0\
-
-:: Define o prompt do comando para mostrar o caminho completo e o símbolo '>'
 prompt $p$_$g
+:: Altera o prompt de comando para exibir o caminho atual e um novo linha ($p$_) seguido de '>' ($g)
 
-:: Define o caminho atual (o diretório onde o arquivo .bat está sendo executado)
-set caminho=%CD%
+set pasta_atual=%CD%
+:: Define uma variável chamada "pasta_atual" que armazena o diretório atual (onde o script está sendo executado)
 
-:: Adiciona o diretório de utilitários Php ao PATH do sistema
-set PATH=%caminho%\Utils\php;%PATH%
+set PATH=%pasta_atual%\Utils\php;%PATH%
+:: Adiciona o caminho para a pasta "Utils\php" (dentro do diretório atual) ao PATH do sistema
+:: Isso permite que você execute comandos PHP a partir de qualquer lugar no terminal
 
-:: Navega para o diretório 'Projetos'
 cd Projetos
+:: Altera o diretório atual para a pasta "Projetos" dentro do diretório atual
 
-:: Limpa a tela
 cls
+:: Limpa a tela do terminal para uma aparência mais limpa
+
