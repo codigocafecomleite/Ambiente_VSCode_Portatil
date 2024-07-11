@@ -7,9 +7,9 @@ prompt $p$_$g
 set pasta_atual=%CD%
 :: Define uma variável chamada "pasta_atual" que armazena o diretório atual (onde o script está sendo executado)
 
-set PATH=%pasta_atual%\Utils\php;%PATH%
-:: Adiciona o caminho para a pasta "Utils\php" (dentro do diretório atual) ao PATH do sistema
-:: Isso permite que você execute comandos PHP a partir de qualquer lugar no terminal
+set PATH=%pasta_atual%\Utils\scripts;%PATH%
+:: Adiciona o caminho para a pasta "script" (dentro do diretório atual) ao PATH do sistema
+:: Isso permite que você execute comandos "Script" a partir de qualquer lugar no terminal
 
 cd Projetos
 :: Altera o diretório atual para a pasta "Projetos" dentro do diretório atual
