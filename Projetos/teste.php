@@ -1,6 +1,7 @@
 <?php
 
     // Função para converter metros em centímetros
+	// Función para convertir metros a centímetros
     function metrosParaCentimetros($metros) {
         $centimetros = $metros * 100;
         return $centimetros;

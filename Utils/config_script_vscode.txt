@@ -50,3 +50,62 @@ Se você quer que este script seja executado toda vez que um novo terminal é ab
 - `"args": ["/K", "C:\\caminho\\para\\seu\\script.bat"]`: O argumento `/K` faz com que o `cmd.exe` execute o comando especificado (neste caso, seu script .bat) e então permaneça aberto.
 
 Seguindo esses passos, você configurará o VSCode para executar automaticamente o script .bat toda vez que um novo terminal for aberto.
+
+***************************************************************
+***************************************************************
+***************************************************************
+
+ES
+
+Para configurar un script .bat para que se ejecute automáticamente al abrir el terminal en Visual Studio Code (VSCode), puedes seguir estos pasos:
+
+1. **Configurar el Perfil en VSCode**:
+   Abre VSCode y ve a la configuración del terminal integrado. Esto se puede hacer agregando un nuevo perfil en `settings.json` para el terminal integrado que ejecutará tu script .bat.
+
+2. **Editar el archivo `settings.json`**:
+   Abre el archivo de configuración de VSCode, que se encuentra en `Archivo > Preferencias > Configuración` o presionando `Ctrl + ,`. En la esquina superior derecha de la ventana de configuración, haz clic en el ícono de página con el texto `Abrir Configuración (JSON)`.
+
+3. **Agregar la Configuración del Terminal**:
+   Añade la siguiente configuración para crear un nuevo perfil que ejecute tu script .bat:
+   ```json
+   "terminal.integrated.profiles.windows": {
+       "Ejecutar Script": {
+           "path": "cmd.exe",
+           "args": ["/K", "C:\\ruta\\a\\tu\\script.bat"]
+       }
+   },
+   "terminal.integrated.defaultProfile.windows": "Ejecutar Script"
+   ```
+   Asegúrate de reemplazar `C:\\ruta\\a\\tu\\script.bat` con la ruta completa a tu archivo .bat.
+
+4. **Guardar y Reiniciar**:
+   Guarda la configuración y reinicia VSCode. Ahora, cada vez que abras el terminal integrado, se ejecutará automáticamente el script .bat especificado.
+
+### Ejemplos de Configuración
+
+#### Ejemplo 1: Perfil Personalizado
+
+Si deseas agregar un nuevo perfil y alternar manualmente a él, agrega lo siguiente a tu `settings.json`:
+```json
+"terminal.integrated.profiles.windows": {
+    "Ejecutar Script": {
+        "path": "cmd.exe",
+        "args": ["/K", "C:\\ruta\\a\\tu\\script.bat"]
+    }
+},
+```
+Luego puedes abrir el terminal integrado y elegir el perfil `Ejecutar Script` desde el menú de selección de perfil.
+
+#### Ejemplo 2: Configurar como Perfil Predeterminado
+
+Si deseas que este script se ejecute cada vez que se abra un nuevo terminal de forma predeterminada, añade también la siguiente línea a tu `settings.json`:
+```json
+"terminal.integrated.defaultProfile.windows": "Ejecutar Script"
+```
+
+### Explicación de los Parámetros
+
+- `"path": "cmd.exe"`: Define que el terminal se abrirá usando `cmd.exe`.
+- `"args": ["/K", "C:\\ruta\\a\\tu\\script.bat"]`: El argumento `/K` hace que `cmd.exe` ejecute el comando especificado (en este caso, tu script .bat) y luego permanezca abierto.
+
+Siguiendo estos pasos, configurarás VSCode para que ejecute automáticamente el script .bat cada vez que se abra un nuevo terminal.
